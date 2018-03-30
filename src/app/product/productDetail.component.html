@@ -1,0 +1,22 @@
+<div class="product-page">
+              <div class="product-breadcrum">
+                <hr />
+                <a href="/" ><b> HOME </b></a> /<b>PLATES /</b> {{product.title}}
+              </div>
+              <div class="row">
+                <div class="col-lg-6  product-image">
+                    <img src="./assets/images/{{product.image}}" class="img-responsive" />
+                </div>
+                <div class="col-lg-6  product-details">
+                    <div class="product-brand">{{product.brand}}</div>
+                    <div class="product-title">{{product.title}}</div>
+                    <div class="product-price">{{product.price}}</div>
+                    <div class="product-description">{{product.description}}</div>
+                    <hr />  
+                    <div class="box-container">
+                      <clickable-num quantity="{{quantity}}" (change)="qtyChange($event)"></clickable-num>
+                      <add-to-cart quantity="{{quantity}}" [product]="product"></add-to-cart>
+                    </div>                                                      
+                </div>
+              </div>
+</div>0

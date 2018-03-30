@@ -1,0 +1,37 @@
+<div class="minicart col-lg-3">
+    <button class="cart-toggle pull-right" (click)="toggleCart($event)">
+        <div class="pull-right">MY CART {{getTotalItem() | async }}<b class="caret"></b></div>      
+    </button>
+ 
+    <div class="cart"  [hidden]="IsMinimized">
+        <ul class="cartContent">
+            <li *ngFor=" let item of shoppingCartItem" class="clearfix">
+                <div class="row">
+                    <div class="thumbnail col-lg-4">
+                        <img src="./assets/images/{{item.product.image}}">
+                    </div>
+                    <div class="miniDetail col-lg-7">
+                        <div class="miniTitle">{{item.product.title}} * {{item.quantity}}</div>
+                        <div class="miniBrand">{{item.product.brand}}</div>
+                        <div class="miniPrice">{{item.product.price | currency}}</div>
+                    </div>
+                    <div class="miniRemove col-lg-1">
+                        <span (click)="removeItem(item)">X</span>
+                    </div>
+                </div>
+            </li>            
+        </ul>
+        <hr>
+        <div class="row">
+            <div class="col-sm-8 total">
+                TOTAL
+            </div>
+            <div class="col-sm-4 totalPrice">
+                {{getTotal() | async}}
+            </div>
+        </div>
+
+        <a [routerLink]="['cart']"><button class="viewButton">VIEW CART</button></a>
+        <button class="checkoutButton">CHECKOUT</button>
+    </div>    
+</div>

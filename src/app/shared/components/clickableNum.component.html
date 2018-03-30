@@ -1,0 +1,7 @@
+<div class="clickable-num">
+    <div class="clickable-container">
+        <input  type='text' class='quantity' value={{quantity}} disabled/>
+        <button (click)="increment()" class='qtyplus'>+</button>
+        <button (click)="decrement()" class='qtyminus' [disabled]="quantity<=0">-</button> 
+    </div>       
+</div>

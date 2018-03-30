@@ -1,0 +1,13 @@
+<div class="product-preview">                             
+        <a mouseOverImage><img src="./assets/images/{{product.image}}" class="img-responsive" />
+            <div class="mouse-show-div" style="visibility: hidden">  
+                <a class="detail-link" [routerLink]="['details', product.title]">
+                    <span>VIEW DETAILS</span>
+                </a>  
+                <add-to-cart quantity="1" [product]="product"></add-to-cart>
+            </div>                                    
+        </a>
+        <h6>{{product.brand}}</h6>
+        <p>{{product.title}}</p>
+        <h6>{{product.price}}</h6>
+      </div>

@@ -1,0 +1,52 @@
+<div class="jumbotron">
+    <div class="container">
+        <h2 class="cartTitle">Shopping Cart</h2>
+        <div class="cart-table">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th class="col-sm-7">Product</th>
+                        <th class="col-sm-2">Quantity</th>
+                        <th class="col-sm-2">Total</th>
+                        <th class="col-sm-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of shoppingCartItem">
+                        <td class="col-sm-7">
+                            <div>
+                                <div class="thumbnail col-lg-2">
+                                    <img src="./assets/images/{{item.product.image}}">
+                                </div>
+                                <div class="miniDetail col-lg-7">
+                                    <div class="miniBrand">{{item.product.brand}}</div>
+                                    <div class="miniTitle">{{item.product.title}}</div>
+                                    <div class="miniPrice">{{item.product.color}}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-2">
+                            <clickable-num quantity="{{item.quantity}}" (change)="qtyChange($event)"></clickable-num>
+                        </td>
+                        <td class="col-sm-2">
+                            <div class="miniPrice">{{item.product.price | currency}}</div>
+                        </td>
+                        <td class="col-sm-2">
+                            <div class="miniRemove col-lg-1">
+                                <span (click)="removeItem(item)">X</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div class="cartDesciption" [hidden]="shoppingCartItems$.length > 0">
+                <div>cart overview</div>
+                <div>total: {{getTotal() | async}}</div>
+            </div>
+            <hr>
+            <a [routerLink]="['/']"><button class="viewButton">CONTINUE SHOPPING</button></a>
+            <button class="checkoutButton" style="float: right;">CHECKOUT</button>
+        </div>
+    </div>
+</div>
